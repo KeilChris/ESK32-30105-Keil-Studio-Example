@@ -1,0 +1,52 @@
+# A solution is a collection of related projects that share same base configuration.
+solution:
+  created-for: CMSIS-Toolbox@2.9.0
+  cdefault: # use CMSIS-Toolbox default Compiler options
+
+  # Compilers that can be selected
+  select-compiler:
+    - compiler: AC6
+    - compiler: GCC
+    - compiler: IAR
+    - compiler: CLANG
+
+  # List the packs that define the device and/or board.
+  packs:
+    - pack: Holtek::HT32_DFP
+    - pack: ARM::CMSIS
+
+  # List different hardware targets that are used to deploy the solution.
+  target-types:
+    - type: HT32F12366
+      board: ESK32-30105 (HT32F12366):Ver 2.3
+      device: HT32F12366
+      target-set:
+        - set:
+          debugger:
+            name: CMSIS-DAP
+          images:
+            - project-context: Blank.Debug
+
+  # List of different build configurations.
+  build-types:
+    - type: Debug
+      debug: on
+      optimize: none
+
+    - type: Release
+      debug: off
+      optimize: balanced
+
+  misc:
+    - for-compiler: AC6
+      C-CPP:
+        - -gdwarf-5
+      ASM:
+        - -gdwarf-5
+      Link:
+        - --entry=Reset_Handler
+
+  # List related projects.
+  projects:
+    - project: Blank/Blank.cproject.yml
+  compiler: AC6

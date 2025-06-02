@@ -1,0 +1,18 @@
+build-idx:
+  generated-by: csolution version 2.9.0
+  cdefault: ${CMSIS_COMPILER_ROOT}/cdefault.yml
+  csolution: Blank_solution.csolution.yml
+  tmpdir: tmp
+  cprojects:
+    - cproject: Blank/Blank.cproject.yml
+  cbuilds:
+    - cbuild: Blank/Blank.Debug+HT32F12366.cbuild.yml
+      project: Blank
+      configuration: .Debug+HT32F12366
+      messages:
+        info:
+          - Blank_solution.cbuild-pack.yml - file is already up-to-date
+          - Blank_solution+HT32F12366.cbuild-run.yml - file is already up-to-date
+          - Blank.Debug+HT32F12366.cbuild.yml - file is already up-to-date
+      packs-unused:
+        - pack: ARM::CMSIS-Compiler@2.1.0

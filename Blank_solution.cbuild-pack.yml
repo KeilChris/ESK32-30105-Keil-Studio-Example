@@ -1,0 +1,11 @@
+cbuild-pack:
+  resolved-packs:
+    - resolved-pack: ARM::CMSIS@6.1.0
+      selected-by-pack:
+        - ARM::CMSIS
+    - resolved-pack: ARM::CMSIS-Compiler@2.1.0
+      selected-by-pack:
+        - ARM::CMSIS-Compiler
+    - resolved-pack: Holtek::HT32_DFP@1.0.63
+      selected-by-pack:
+        - Holtek::HT32_DFP

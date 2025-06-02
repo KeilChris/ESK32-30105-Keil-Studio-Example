@@ -1,0 +1,135 @@
+build:
+  generated-by: csolution version 2.9.0
+  solution: ../Blank_solution.csolution.yml
+  project: Blank.cproject.yml
+  context: Blank.Debug+HT32F12366
+  compiler: AC6
+  board: Holtek::ESK32-30105 (HT32F12366):Ver 2.3
+  board-pack: Holtek::HT32_DFP@1.0.63
+  board-books:
+    - name: https://www.holtek.com/esk32-30105
+      title: ESK32-30105 Starter Kit Web Page
+      category: overview
+  device: Holtek::HT32F12366
+  device-pack: Holtek::HT32_DFP@1.0.63
+  processor:
+    endian: little
+    fpu: off
+    core: Cortex-M3
+  packs:
+    - pack: ARM::CMSIS@6.1.0
+      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0
+    - pack: Holtek::HT32_DFP@1.0.63
+      path: ${CMSIS_PACK_ROOT}/Holtek/HT32_DFP/1.0.63
+  optimize: none
+  debug: on
+  misc:
+    ASM:
+      - -gdwarf-5
+      - -masm=auto
+    C:
+      - -gdwarf-5
+      - -std=gnu11
+      - -Wno-macro-redefined
+      - -Wno-pragma-pack
+      - -Wno-parentheses-equality
+      - -Wno-license-management
+    CPP:
+      - -gdwarf-5
+      - -Wno-macro-redefined
+      - -Wno-pragma-pack
+      - -Wno-parentheses-equality
+      - -Wno-license-management
+    Link:
+      - --entry=Reset_Handler
+      - --info summarysizes
+      - --summary_stderr
+      - --diag_suppress=L6314W
+  define:
+    - USE_HT32F12365_66
+    - _RTE_
+  define-asm:
+    - USE_HT32F12365_66
+    - _RTE_
+  add-path:
+    - RTE/_Debug_HT32F12366
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+    - ${CMSIS_PACK_ROOT}/Holtek/HT32_DFP/1.0.63/ARM/INC/Holtek/HT32F1xxxx
+  add-path-asm:
+    - RTE/_Debug_HT32F12366
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+    - ${CMSIS_PACK_ROOT}/Holtek/HT32_DFP/1.0.63/ARM/INC/Holtek/HT32F1xxxx
+  output-dirs:
+    intdir: ../tmp
+    outdir: ../out/Blank/HT32F12366/Debug
+    rtedir: RTE
+  output:
+    - type: elf
+      file: Blank.axf
+    - type: hex
+      file: Blank.hex
+    - type: map
+      file: Blank.axf.map
+  components:
+    - component: ARM::CMSIS:CORE@6.1.0
+      condition: ARMv6_7_8-M Device
+      from-pack: ARM::CMSIS@6.1.0
+      selected-by: ARM::CMSIS:CORE
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+          category: include
+          version: 6.1.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Core/Include/tz_context.h
+          category: header
+          version: 6.1.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Core/Template/ARMv8-M/main_s.c
+          category: sourceC
+          attr: template
+          version: 1.1.1
+          select: Secure mode 'main' module for ARMv8-M
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Core/Template/ARMv8-M/tz_context.c
+          category: sourceC
+          attr: template
+          version: 1.1.1
+          select: RTOS Context Management (TrustZone for ARMv8-M)
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Documentation/html/Core/index.html
+          category: doc
+          version: 6.1.0
+    - component: Holtek::Device:Startup@1.0.1
+      condition: HT32Fxxxx CMSIS
+      from-pack: Holtek::HT32_DFP@1.0.63
+      selected-by: Device:Startup
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Holtek/HT32_DFP/1.0.63/ARM/INC/Holtek/HT32F1xxxx
+          category: include
+          version: 1.0.1
+        - file: RTE/Device/HT32F12366/startup_ht32f12365_66.s
+          category: source
+          attr: config
+          version: 1.2.1
+        - file: RTE/Device/HT32F12366/system_ht32f1xxxx_02.c
+          category: source
+          attr: config
+          version: 1.1.4
+  linker:
+    script: RTE/Device/HT32F12366/ac6_linker_script.sct.src
+    regions: RTE/Device/HT32F12366/regions_ESK32-30105__HT32F12366_.h
+  groups:
+    - group: Source Files
+      files:
+        - file: main.c
+          category: sourceC
+  constructed-files:
+    - file: RTE/_Debug_HT32F12366/RTE_Components.h
+      category: header
+  licenses:
+    - license: <unknown>
+      packs:
+        - pack: Holtek::HT32_DFP@1.0.63
+      components:
+        - component: Holtek::Device:Startup@1.0.1
+    - license: Apache-2.0
+      packs:
+        - pack: ARM::CMSIS@6.1.0
+      components:
+        - component: ARM::CMSIS:CORE@6.1.0
