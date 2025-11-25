@@ -1,5 +1,0 @@
-cbuild-set:
-  generated-by: vscode-cmsis-csolution version 1.54.0
-  environment: {}
-  contexts:
-    - context: Blank.Debug+HT32F12366

@@ -2,7 +2,7 @@
 
 This is an example project for the
 [Holtek ESK32-30105](https://www.holtek.com/page/tool-detail/dev_kit/sk/sk_32/ESK32-30105) based on the blank template in
-Keil Studio. It is set up to use the open-source Arm CMSIS Debugger.
+Keil Studio. The code calculates the first 150 prime numbers. It is set up to use the open-source Arm CMSIS Debugger.
 
 ## How to use
 

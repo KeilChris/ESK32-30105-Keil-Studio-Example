@@ -1,18 +1,19 @@
 build-idx:
-  generated-by: csolution version 2.9.0
+  generated-by: csolution version 2.12.0
   cdefault: ${CMSIS_COMPILER_ROOT}/cdefault.yml
   csolution: Blank_solution.csolution.yml
+  cbuild-run: out/Blank_solution+HT32F12366.cbuild-run.yml
   tmpdir: tmp
   cprojects:
-    - cproject: Blank/Blank.cproject.yml
+    - cproject: Project/PrimeCalc.cproject.yml
   cbuilds:
-    - cbuild: Blank/Blank.Debug+HT32F12366.cbuild.yml
-      project: Blank
+    - cbuild: out/PrimeCalc/HT32F12366/Debug/PrimeCalc.Debug+HT32F12366.cbuild.yml
+      project: PrimeCalc
       configuration: .Debug+HT32F12366
       messages:
         info:
           - Blank_solution.cbuild-pack.yml - file is already up-to-date
           - Blank_solution+HT32F12366.cbuild-run.yml - file is already up-to-date
-          - Blank.Debug+HT32F12366.cbuild.yml - file is already up-to-date
+          - PrimeCalc.Debug+HT32F12366.cbuild.yml - file is already up-to-date
       packs-unused:
         - pack: ARM::CMSIS-Compiler@2.1.0
